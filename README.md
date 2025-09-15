@@ -87,29 +87,8 @@ Example output:
 ## 📊 How It Works
 The workflow looks like this:
 
-flowchart TD
-    A[plan_node] --> B[subqueries_node]
+![High Level Graph](<Untitled diagram _ Mermaid Chart-2025-09-15-160824.png>)
 
-    %% Search fan-out
-    B -->|Send| S1[search_worker]
-    B -->|Send| S2[search_worker]
-    B -->|Send| S3[search_worker]
-    S1 & S2 & S3 --> SJ[search_join]
-    SJ --> PR[plan_reads]
-
-    %% Read fan-out
-    PR -->|Send| R1[read_worker]
-    PR -->|Send| R2[read_worker]
-    PR -->|Send| R3[read_worker]
-    R1 & R2 & R3 --> RJ[read_join]
-
-    %% Downstream
-    RJ --> SY[synthesize]
-    SY --> RF[reflect]
-
-    %% Loop or end
-    RF -->|continue| B
-    RF -->|stop| END((END))
 
 ## 🔄 Key Concepts
 
