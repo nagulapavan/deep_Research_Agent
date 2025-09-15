@@ -5,17 +5,17 @@ Instead of just “search → stuff into context → answer,” this agent perfo
 
 ## ✨ Features
 
-### Plan → Subqueries → Search → Read → Synthesize → Reflect → Iterate
+Plan → Subqueries → Search → Read → Synthesize → Reflect → Iterate
 
-### Parallel search and read workers (fan-out / fan-in pattern)
+- Parallel search and read workers (fan-out / fan-in pattern)
 
-### Synchronization barriers to ensure all searches and reads finish before moving forward
+- Synchronization barriers to ensure all searches and reads finish before moving forward
 
-### Delta dict updates (only diffs flow through state → memory-efficient)
+- Delta dict updates (only diffs flow through state → memory-efficient)
 
-### Reflection loop: the agent critiques its own draft, proposes follow-ups, and improves answers
+- Reflection loop: the agent critiques its own draft, proposes follow-ups, and improves answers
 
-### Safe by design: ignores hallucinations and always cites URLs
+- Safe by design: ignores hallucinations and always cites URLs
 
 ## 🛠️ Tech Stack
 
@@ -30,24 +30,24 @@ httpx (fetching with timeouts and redirects)
 ## 📦 Installation
 
 Clone the repo:
-    git clone https://github.com/nagulapavan/deep_Research_Agent.git
-    cd deep_Research_Agent
+- git clone https://github.com/nagulapavan/deep_Research_Agent.git
+- cd deep_Research_Agent
 
 Create a virtual environment:
-    python -m venv venv
-    source venv/bin/activate   # Mac/Linux
-    venv\Scripts\activate      # Windows
+- python -m venv venv
+- source venv/bin/activate   # Mac/Linux
+- venv\Scripts\activate      # Windows
 
 Install dependencies:
-    pip install -r requirements.txt
+- pip install -r requirements.txt
 
 ## 🔑 Environment Setup
 
 Create a .env file in the root directory:
 
-OPENAI_API_KEY=your_openai_api_key_here
-TAVILY_API_KEY=your_tavily_api_key_here   # optional
-MODEL=gpt-4o-mini
+- OPENAI_API_KEY=your_openai_api_key_here
+- TAVILY_API_KEY=your_tavily_api_key_here   # optional
+- MODEL=gpt-4o-mini
 
 ## 🚀 Usage
 
@@ -86,16 +86,16 @@ The workflow looks like this:
 
 ## 🔄 Key Concepts
 
-### Fan-out / Fan-in: Multiple searches or reads run in parallel, then results are merged.
-### Barriers: search_join and read_join wait until all workers for that round finish.
-### Delta dicts: Nodes only return changes (deltas), which reducers merge into state.
-### Reflection: After synthesis, the agent critiques its own work and may trigger another iteration.
+- Fan-out / Fan-in: Multiple searches or reads run in parallel, then results are merged.
+- Barriers: search_join and read_join wait until all workers for that round finish.
+- Delta dicts: Nodes only return changes (deltas), which reducers merge into state.
+- Reflection: After synthesis, the agent critiques its own work and may trigger another iteration.
 
 ## 📌 Roadmap
 
- ### Add Gaurdrails using LLM-based URL and content safety checks
- ### Add vector store for memory across runs
- ### Add GUI (Streamlit/Gradio) for interactive deep research
+ - Add Gaurdrails using LLM-based URL and content safety checks
+ - Add vector store for memory across runs
+ - Add GUI (Streamlit/Gradio) for interactive deep research
 
 ## 📜 License
 
